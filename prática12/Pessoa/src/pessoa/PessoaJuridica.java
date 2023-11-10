@@ -2,27 +2,32 @@ package pessoa;
 
 public class PessoaJuridica extends Pessoa {
 
-	private String CNPJ;
+	private String cnpj;
 
 	public PessoaJuridica() {
 
 		super();
-		CNPJ = "";
+		cnpj = "";
 	}
 
-	public PessoaJuridica(String CNPJ, String nome) {
+	public PessoaJuridica(String nome, String cnpj) {
 
 		super(nome);
-		this.CNPJ = CNPJ;
+		this.cnpj = cnpj;
 
 	}
 
 	public String getCNPJ() {
-		return CNPJ;
+		return cnpj;
 	}
 
-	public void setCNPJ(String cNPJ) {
-		CNPJ = cNPJ;
+	public void setCNPJ(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String exibe() {
+
+		return "\n[Pessoa Jurídica]\n\n" + super.exibe() + "\n| CNPJ: " + cnpj;
 	}
 
 }

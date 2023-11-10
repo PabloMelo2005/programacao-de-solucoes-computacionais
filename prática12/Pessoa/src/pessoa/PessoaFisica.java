@@ -27,6 +27,6 @@ public class PessoaFisica extends Pessoa {
 
 	public String exibe() {
 
-		return super.exibe() + " CPF: " + cpf;
+		return "\n[Pessoa Física]\n\n" + super.exibe() + "\n| CPF: " + cpf;
 	}
 }

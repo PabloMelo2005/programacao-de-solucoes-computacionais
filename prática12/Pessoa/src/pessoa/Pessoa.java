@@ -23,7 +23,7 @@ public class Pessoa {
 
 	public String exibe() {
 
-		return "Nome: " + nome;
+		return "| Nome: " + nome;
 	}
 
 }
