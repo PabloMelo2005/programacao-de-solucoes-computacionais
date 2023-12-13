@@ -1,0 +1,26 @@
+a) SELECT
+  fornecedor.nome AS Fornecedor,
+  ROUND(SUM(produto.preco), 2) AS Soma_Preco
+FROM
+  fornecedor
+LEFT JOIN
+  produto ON fornecedor.id = produto.id_fornecedor
+GROUP BY
+  fornecedor.nome
+ORDER BY
+  Soma_Preco DESC;
+
+
+
+b) SELECT
+  fornecedor.nome AS Fornecedor,
+  ROUND(AVG(produto.preco), 2) AS Media_Preco
+FROM
+  fornecedor
+LEFT JOIN
+  produto ON fornecedor.id = produto.id_fornecedor
+GROUP BY
+  fornecedor.nome
+ORDER BY
+  Media_Preco DESC;
+

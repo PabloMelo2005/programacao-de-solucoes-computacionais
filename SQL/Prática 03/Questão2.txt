@@ -1,0 +1,36 @@
+CREATE TABLE TabelaA (
+    ID_A INT PRIMARY KEY,
+    NomeA VARCHAR(50)
+);
+
+CREATE TABLE TabelaB (
+    ID_B INT PRIMARY KEY,
+    ID_A INT,
+    CONSTRAINT fk_tabelaB_tabelaA FOREIGN KEY (ID_A) REFERENCES TabelaA(ID_A)
+);
+
+
+
+
+SELECT * FROM TabelaA
+ORDER BY ID_A;
+
+SELECT * FROM TabelaA
+GROUP BY ID_A;
+
+SELECT * FROM TabelaA
+GROUP BY nomea
+HAVING ID_A >= 4;
+
+
+
+
+SELECT * FROM TabelaA
+ORDER BY ID_A;
+
+SELECT * FROM TabelaB
+GROUP BY ID_A;
+
+SELECT * FROM TabelaB
+GROUP BY ID_B
+HAVING ID_A > 2;

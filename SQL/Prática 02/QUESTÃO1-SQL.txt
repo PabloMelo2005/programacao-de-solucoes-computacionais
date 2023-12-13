@@ -1,0 +1,57 @@
+QUESTÃO 1 - SQL
+
+
+create table ALUNOS (
+  MATRICULA int primary key, 
+  CPF varchar(11), 
+  NOME varchar(100), 
+  DATA_NASCIMENTO date, 
+  TELEFONE varchar(15),
+  ENDEREÇO varchar(100)
+  );
+CREATE TABLE CURSO (
+    ID int PRIMARY KEY, 
+    NOME varchar(100), 
+    DESCRIÇÃO text, 
+    VALOR_MENSALIDADE decimal(10,2),
+    DATA_CRIAÇÃO date
+  );
+  
+CREATE TABLE UNIDADE_CURRICULAR (
+    ID int primary key,
+    NOME varchar(100),
+    DESCRIÇÃO text,
+    DATA_INICIO date,
+    DATA_TERMINO date,
+    CARGA_HORARIA int
+   );
+
+#TABELA ALUNOS
+INSERT INTO ALUNOS VALUES (1, '8492384323','LUCAS GONZAGA DA SILVA', '12-01-2004', '(31)98765-4321', 'Rua Santos Dummont, número 14 - Bairro São João')
+SELECT * FROM ALUNOS
+UPDATE ALUNOS
+SET NOME = 'LUCAS CAETANO DA SILVA'
+WHERE MATRICULA = 1;
+DELETE FROM ALUNOS WHERE MATRICULA = 1;
+
+#TABELA CURSO
+INSERT into CURSO values (1, 'Análise e Desenvolvimento de Sistemas)', 'É uma graduação de nível tecnológico que torna o estudante apto a projetar, testar, implantar e gerenciar sistemas e recursos que envolvem Hardware e Software.', 1200.00, '18-02-2006');
+SELECT * FROM CURSO
+UPDATE CURSO
+SET DATA_CRIAÇÃO = '15-02-2006'
+WHERE ID = 1;
+DELETE FROM CURSO WHERE ID = 1;
+
+#TABELA UNIDADE_CURRICULAR
+INSERT INTO UNIDADE_CURRICULAR VALUES (1, 'Programação de Soluções Computacionais', 'Pura programação em Backend', '16-08-2023', '20-12-2025', 1.500);
+SELECT * from UNIDADE_CURRICULAR;
+UPDATE UNIDADE_CURRICULAR
+SET CARGA_HORARIA = 1600
+WHERE ID = 1;
+DELETE FROM UNIDADE_CURRICULAR WHERE ID = 1;
+
+  
+  
+  
+  
+  

@@ -1,0 +1,5 @@
+SELECT produto.nome AS produto, filial.nome AS filial, filial.cnpj AS cnpj, filial.telefone AS telefone, filial.endereco AS endereco, ROUND(produto.preco * estoque.quantidade, 2) AS valor_total
+FROM estoque
+JOIN produto ON estoque.id_produto = produto.id
+JOIN filial ON estoque.cnpj_filial = filial.cnpj
+WHERE valor_total > 10000;

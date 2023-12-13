@@ -1,0 +1,34 @@
+a) SELECT * FROM produto
+ORDER BY preco desc;
+
+b) SELECT * FROM produto
+ORDER BY nome asc, preco desc;
+
+c) INSERT INTO produto VALUES (11, 'arroz integral', 19.99, '2024-01-15');
+INSERT INTO identificacao (id, nome, descricao) VALUES (11, 'integral', 'com fibras');
+
+
+INSERT INTO produto VALUES (12, 'calça jeans escuro', 199.99, '2045-03-01');
+INSERT INTO identificacao (id, nome, descricao) VALUES (12, 'jeans', 'modelo skinny');
+
+INSERT INTO produto VALUES (13, 'camisa listrada', 59.99, '2043-07-20');
+INSERT INTO identificacao (id, nome, descricao) VALUES (13, 'algodão', 'listras coloridas');
+
+SELECT * FROM identificacao
+GROUP BY nome;
+
+d) SELECT identificacao.nome, SUM(produto.preco) AS soma_precos
+FROM produto
+JOIN identificacao ON produto.id = identificacao.id
+GROUP BY identificacao.nome;
+
+e) SELECT identificacao.nome, ROUND(AVG(produto.preco), 2) AS media_precos
+FROM produto
+JOIN identificacao ON produto.id = identificacao.id
+GROUP BY identificacao.nome;
+
+f) SELECT identificacao.nome, SUM(produto.preco) AS soma_precos_acima_100
+FROM produto
+JOIN identificacao ON produto.id = identificacao.id
+GROUP BY identificacao.nome
+HAVING SUM(produto.preco) > 100;

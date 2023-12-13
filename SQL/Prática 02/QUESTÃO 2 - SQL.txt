@@ -1,0 +1,50 @@
+CREATE TABLE CLIENTE (
+  CPF varchar(11) PRIMARY KEY, 
+  NOME varchar(100), 
+  DATA_NASCIMENTO date, 
+  TELEFONE varchar(15), 
+  ENDEREÇO varchar(100)
+);
+
+CREATE TABLE VEÍCULO (
+  CHASSI varchar(17) PRIMARY KEY,
+  PLACA varchar(7),
+  MODELO varchar(30),
+  MARCA varchar(10),
+  ANO varchar(4)
+  );
+
+CREATE TABLE MECÂNICO (
+ CPF varchar(11), 
+ NOME varchar(100), 
+ DATA_NASCIMENTO date, 
+ TELEFONE varchar(15), 
+ ENDEREÇO varchar(100), 
+ SALARIO decimal(10,2)
+  );
+
+#Tabela CLIENTE
+INSERT INTO CLIENTE VALUES ('12367890543', 'Túlio Rocha Spitzner', '14-04-2000', '(21)987654123', 'Rua 3378, n° 67 - Petrópolis');
+SELECT * FROM CLIENTE;
+UPDATE CLIENTE
+SET NOME = 'Túlio Rocha Pedrosa'
+WHERE CPF = '12367890543';
+DELETE FROM CLIENTE WHERE CPF = '12367890543';
+
+
+#Tabela VEÍCULOS
+INSERT INTO VEÍCULO VALUES ('12545366218773982', 'GFR7654', 'UNO', 'FIAT', '2006');
+SELECT * FROM VEÍCULO;
+UPDATE VEÍCULO
+SET MODELO =  'Argo'
+WHERE MARCA = 'Fiat';
+DELETE FROM VEÍCULO WHERE PLACA = 'GFR7654';
+
+
+#Tabela MECÂNICO
+INSERT INTO MECÂNICO VALUES ('02674327834', 'Luciano Cavalcanti Avelar', '10-06-1990', '(31)98754-4321', 'Rua Y, n°56 - Belo Horizonte', 1800.00);
+SELECT * FROM MECÂNICO;
+UPDATE MECÂNICO
+SET DATA_NASCIMENTO = '18-06-1990'
+WHERE NOME = 'Luciano Cavalcanti Avelar';
+DELETE FROM MECÂNICO WHERE NOME = 'Luciano Cavalcanti Avelar';

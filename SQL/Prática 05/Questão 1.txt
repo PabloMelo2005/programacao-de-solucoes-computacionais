@@ -1,0 +1,12 @@
+a) SELECT produto.nome, ROUND(produto.preco * estoque.quantidade, 2) AS valor_total
+FROM produto
+JOIN estoque ON produto.id = estoque.id_produto
+ORDER BY valor_total DESC;
+
+b)SELECT produto.nome, ROUND(produto.preco * estoque.quantidade, 2) AS valor_total, filial.nome AS filial
+FROM estoque
+JOIN produto ON estoque.id_produto = produto.id
+JOIN filial ON estoque.cnpj_filial = filial.cnpj
+GROUP BY filial
+ORDER BY valor_total desc;
+

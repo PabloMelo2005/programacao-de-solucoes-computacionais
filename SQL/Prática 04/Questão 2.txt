@@ -1,0 +1,7 @@
+SELECT
+  fornecedor.id, fornecedor.nome, fornecedor.telefone, fornecedor.endereco , ROUND(SUM(produto.preco), 2) AS Soma_Preco
+FROM
+  fornecedor
+LEFT JOIN produto ON fornecedor.id = produto.id_fornecedor
+HAVING
+  Soma_Preco > 500;

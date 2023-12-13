@@ -1,0 +1,58 @@
+CREATE TABLE CLIENTE (
+  CPF varchar(11) PRIMARY KEY, 
+  NOME varchar(100), 
+  DATA_NASCIMENTO date, 
+  AGENCIA varchar(20), 
+  CONTA varchar(20), 
+  TELEFONE varchar(15),
+  ENDEREÇO varchar(20),
+  PERFIL varchar(20) CHECK (PERFIL IN ('conservador', 'moderado', 'arrojado', 'sofisticado', 'agressivo'))
+  );
+
+CREATE TABLE ATIVO_FINANCEIRO (
+  CÓDIGO int PRIMARY KEY, 
+  NOME varchar(20), 
+  DESCRIÇÃO text,
+  EMISSOR varchar(100),
+  DATA_INÍCIO date,
+  DATA_FIM date 
+);
+
+CREATE TABLE NOTA_CORRETAGEM (
+  ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  CPF_CLIENTE VARCHAR(11),
+  DATA_COMPRA DATE, 
+  CODIGO_ATIVO INT,
+  QTDE INT, 
+  COTACAO DECIMAL(10,2),
+  VALOR DECIMAL(10,2),
+  FOREIGN KEY (CPF_CLIENTE) REFERENCES CLIENTE(CPF),
+  FOREIGN KEY (CODIGO_ATIVO) REFERENCES ATIVO_FINANCEIRO(CÓDIGO)
+);
+
+
+#Tabela CLIENTE
+INSERT INTO CLIENTE VALUES ('13456789032', 'Geraldo do Vale', '23-05-1972', '212', '12723829qasr3459', '(31)93457-2135', 'Rua Borba Gato, n°45 - Bairro Pombal', 'conservador')
+SELECT * FROM CLIENTE;
+UPDATE CLIENTE
+set NOME = 'Geraldo Francisco Vale!'
+WHERE CPF = '13456789032';
+
+
+#Tabela ATIVO_FINANCEIRO
+INSERT INTO ATIVO_FINANCEIRO VALUES (1, 'Tesouro Direto', 'Possuem liquidez diária, ou seja, você pode resgatá-los a qualquer momento, quando achar conveniente para os seus objetivos. Todas as suas aplicações no Tesouro Direto são 100% garantidas pelo Tesouro Nacional', 'Banco do Brasil', '18-02-2023', '15-08-2027')
+SELECT * FROM ATIVO_FINANCEIRO;
+UPDATE ATIVO_FINANCEIRO
+set NOME = 'CDB'
+WHERE CÓDIGO = 1;
+DELETE FROM CLIENTE WHERE CPF = '13456789032';
+DELETE FROM ATIVO_FINANCEIRO WHERE CÓDIGO = 1;
+
+
+#Tabela NOTA_CORRETAGEM
+INSERT INTO NOTA_CORRETAGEM VALUES(1, '13456789032', '2022-02-15', 1, 10, 150.50, 1505.00);
+SELECT * FROM NOTA_CORRETAGEM;
+UPDATE NOTA_CORRETAGEM
+SET QTDE = 12
+WHERE COTACAO = 150.50;
+DELETE FROM NOTA_CORRETAGEM WHERE ID = 1;
